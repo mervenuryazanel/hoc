@@ -9,17 +9,18 @@ const HOC = (WrappedComponent, entity) => {
         };
 
         componentDidMount() {
+
             const fetchData = async () => {
                 const res = await fetch(`https://jsonplaceholder.typicode.com/${entity}`);
                 const json = await res.json();
                 // setUsers(json);
                 this.setState({ ...this.state, data: json });
-                console.log("data", data);
             }
 
             fetchData();
         }
         render() {
+            let { term, data } = this.state;
 
             let filteredData = data.filter(d => {
                 if (entity === "users") {
