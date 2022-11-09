@@ -48,7 +48,7 @@ const UsersList = () => {
             {renderUsers} */}
 
             <h2>
-                Filtered Users List
+                Users
             </h2>
             <input type="text" value={term} onChange={(e) => { setTerm(e.target.value) }}>
             </input>
