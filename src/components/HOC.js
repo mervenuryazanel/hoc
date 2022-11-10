@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const HOC = (WrappedComponent, entity) => {
     return class extends React.Component {
         state = {
@@ -22,7 +21,7 @@ const HOC = (WrappedComponent, entity) => {
         render() {
             let { term, data } = this.state;
 
-            let filteredData = data.filter(d => {
+            let filteredData = data.slice(0, 10).filter(d => {
                 if (entity === "users") {
                     const { name } = d;
                     return name.indexOf(term) >= 0;
@@ -33,15 +32,7 @@ const HOC = (WrappedComponent, entity) => {
                 }
 
             })
-                .map((user) => {
-                    return (
-                        <div key={user.id}>
-                            <p>
-                                <strong>{user.name}</strong>
-                            </p>
-                        </div>
-                    )
-                })
+
 
             return (
 
